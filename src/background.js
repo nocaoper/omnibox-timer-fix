@@ -3,6 +3,10 @@ var audioList = [
   {
     "name": "ring",
     "src": "alarm.wav"
+  },
+  {
+    "name": "mute",
+    "src": "noSound.wav"
   }
 ];
 var audios = {};
