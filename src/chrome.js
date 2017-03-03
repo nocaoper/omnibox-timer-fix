@@ -66,10 +66,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 function openOptionsPage() {
   var url = chrome.runtime.getURL("options.html");
   chrome.tabs.query({url: url, currentWindow: true}, function(tabs) {
-//    if (tabs.length > 0) {
-//      chrome.tabs.update(tabs[0].id, {active: true});
-//    } else {
+    if (tabs.length > 0) {
+      chrome.tabs.update(tabs[0].id, {active: true});
+    } else {
       chrome.tabs.create({url: url});
-//    }
+    }
   });
 }
