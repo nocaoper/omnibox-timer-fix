@@ -1,7 +1,6 @@
 {
   "manifest_version": 2,
-
-  "name": "Omnibox Timer",
+  "name": "Omnibox Timer FIX",
   "description": "A simple timer built for Chrome",
   "version": "0.4.4",
 
@@ -20,7 +19,7 @@
       "19": "19.png",
       "38": "38.png"
     },
-    "default_title": "Omnibox Timer"
+    "default_title": "Omnibox Timer FIX"
   },
 
   "background": {
