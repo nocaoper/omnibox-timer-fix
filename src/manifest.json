@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Omnibox Timer FIX",
-  "description": "Temporary fix FOR Omnibox Timer",
-  "version": "0.4.3",
+  "name": "Omnibox Timer",
+  "description": "A simple timer built for Chrome",
+  "version": "0.4.2",
 
   "omnibox": {
     "keyword": "tm"
