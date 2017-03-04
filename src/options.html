@@ -47,7 +47,27 @@
 </p>
 </div>
 
+<h2>Custom Sequence</h2>
+<p>A typical example for the custom sequence is the pomodoro method, an regular cycle of 25 minutes work followed by 5 minutes of rest. To use that, chooose the minutes as unit, input 25, input 5. Simply type "tm cy1" to begin the first cycle.
+</p>
+<p>Unit of time:
+<input type="radio" name="timeUnit" value="secAsUnit" id="secAsUnit">
+<label for="secAsUnit">Seconds</label>
+<input type="radio" name="timeUnit" value="minAsUnit" id="minAsUnit">
+<label for="minAsUnit">Minutes</label>
+<input type="radio" name="timeUnit" value="hourAsUnit" id="hourAsUnit">
+<label for="hourAsUnit">Hours</label>
+</p>
+
+//name cy1
+//time1, time2, time3, time4, repeat ()
+<p>Special timer 1 (shortcut "tm cy1"):
+<input type="text" value="cy1" id="cy1">
+<label for="time">Suggest most recently used timer text first</label>
+</p>
+
 <div id="flash"></div>
+
 
 </body>
 
