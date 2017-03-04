@@ -6,7 +6,7 @@ chrome.omnibox.onInputEntered.addListener(function(text){
   if (text == "options" || text == "show") {
     openOptionsPage();
   } else if (text == "clr") {
-    resetTimers();
+    clearAllNotifications();
   } else {
     var result = tryToSetupTimer(text);
 
