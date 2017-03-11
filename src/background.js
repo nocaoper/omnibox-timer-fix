@@ -35,12 +35,12 @@ function parseTime(str) {
 }
 
 function setupNotification(timer) {
-  if (!window.Notification) {
+  if (!chrome.notifications) {
     console.log("Notification is not supported.");
     return;
   }
 
-  var id = timer.id;
+  var id = String(timer.id);
   var ms = timer.seconds * 1000;
   var title = 'Timer done!';
 
@@ -48,28 +48,31 @@ function setupNotification(timer) {
               + timer.currentTime);
 
   timeOutsTab[timeOutIncr++] = setTimeout(function() {
-    var notification = new window.Notification(title, {
-      tag: id,
-      icon: "48.png",
-      body: timer.desc
+    chrome.notifications.create(id, {
+      type: "basic",
+      title: title,
+      message: timer.desc,
+      iconUrl: "128.png"
+    }, function() {
+      chrome.notifications.onClicked.addListener(function(notificationId) {
+        if (notificationId === id) {
+          chrome.notifications.clear(id, function() {
+            console.log(id + ": closed at " + new Date().toString());
+          });
+        }
+      });
+      chrome.storage.local.get({soundType: "tts", soundId: "ring"}, function(object) {
+        if (object.soundType == "tts") {
+          chrome.tts.speak(timer.desc);
+        } else if (object.soundType == "bell") {
+          audios[object.soundId].play();
+        }
+      });
+      console.log(id + ": notified at " + new Date().toString());
     });
-    notification.addEventListener('click', function(e) {
-      if (e && e.target && e.target.close) {
-        e.target.close();
-      }
-      console.log(id + ": closed at " + new Date().toString());
-    });
-    chrome.storage.local.get({soundType: "tts", soundId: "ring"}, function(object) {
-      if (object.soundType == "tts") {
-        chrome.tts.speak(timer.desc);
-      } else if (object.soundType == "bell") {
-        audios[object.soundId].play();
-      }
-    });
-    console.log(id + ": notified at " + new Date().toString());
   }, ms);
 }
-
+        
 function clearAllNotifications() {
    for (key in timeOutsTab) {  
       clearTimeout(timeOutsTab[key]);  
