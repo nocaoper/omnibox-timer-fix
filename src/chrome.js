@@ -1,5 +1,5 @@
 // Store history
-var history = History()
+var history = History();
 resetDefaultSuggestion();
 
 chrome.omnibox.onInputEntered.addListener(function(text){
