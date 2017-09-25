@@ -2,7 +2,7 @@
 
 Type 'tm' and space, then you can set the timer from
 the omnibox. When time is over, Chrome will show a desktop
-notification. The default time unit is in minutes.
+notification.
 
 ## Install
 Please visit [chrome web store][4].
